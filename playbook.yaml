@@ -1,0 +1,11 @@
+---
+- name: Configure Apache server
+  hosts: slave1
+  roles:
+    - apache
+    - java
+
+- name: Configure Nginx servers
+  hosts: slave2
+  roles:
+    - nginx

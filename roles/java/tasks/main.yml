@@ -1,0 +1,17 @@
+
+# tasks file for Java on Ubuntu
+---
+- name: Update APT cache
+  become: true
+  apt:
+    update_cache: yes
+
+- name: Install Java on Ubuntu
+  become: true
+  apt:
+    name: openjdk-11-jdk
+    state: present
+
+- name: Post-installation message for Java on Ubuntu
+  debug:
+    msg: "Java is installed on the Apache server."

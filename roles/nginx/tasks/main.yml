@@ -1,0 +1,25 @@
+
+---
+
+- name: Install Nginx
+  become: true
+  apt:
+    name: nginx
+    state: present
+
+- name: Copy Nginx index file
+  become: true
+  copy:
+    src: index_nginx.html
+    dest: /var/www/html/index.html
+
+- name: Start Nginx service
+  become: true
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+- name: Post-installation message for Nginx on Ubuntu
+  debug:
+    msg: "Nginx server is setup and running."

@@ -1,0 +1,25 @@
+---
+- name: Install Apache on Ubuntu
+  become: true
+  apt:
+    name: apache2
+    state: present
+
+- name: Copy Apache index file
+  become: true
+  copy:
+    src: index_apache.html
+    dest: /var/www/html/index.html
+
+- name: Start Apache service
+  become: true
+  service:
+    name: apache2
+    state: started
+    enabled: yes
+
+- name: Post-installation message for Apache on Ubuntu
+  debug:
+    msg: "Apache server is setup and running."
+
+
