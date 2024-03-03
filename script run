@@ -1,0 +1,8 @@
+---
+- name: Run Script Directly on Slave
+  hosts: slave # Update this to your slave server
+  become: true
+
+  tasks:
+    - name: Run script on slave
+      script: script.sh  # Update this path
